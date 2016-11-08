@@ -44,7 +44,7 @@ I have no doubt that Luisa enjoys IT, but I haven't seen her working to the best
 Term Grade: B-
 
 Exam Grade: B
-Mar�a has made steady progress in IT this year, she frequently asks relevant questions to make sure she fully understands the material covered. This year she has looked at the importance of staying safe online, produced a website using HTML, investigated the internal components of a computer, produced an animation for a specific purpose and finally discovered the importance of databases. Mar�a has a good attitude to her learning but has not always completed her work within the deadlines. As a target for next year Mar�a should aim to make sure that homework is always completed on time.
+María has made steady progress in IT this year, she frequently asks relevant questions to make sure she fully understands the material covered. This year she has looked at the importance of staying safe online, produced a website using HTML, investigated the internal components of a computer, produced an animation for a specific purpose and finally discovered the importance of databases. María has a good attitude to her learning but has not always completed her work within the deadlines. As a target for next year María should aim to make sure that homework is always completed on time.
 
 Term Grade: B-
 
@@ -108,7 +108,7 @@ Anna Karla has made good progress in IT this year; she is committed to her studi
 Term Grade: A
 
 Exam Grade: A+
-Maria Jos� has made good progress in IT this year; she has a lot of potential but doesn't always apply herself. I would really like to see what she is capable of when she really works hard. She has undertaken website and animation projects, along with developing an understanding of databases and a number of computer theory topics. Maria Jos� seems to down play her abilities; I believe she could do anything she puts her mind to. As a target for next year Maria Jos� should aim to go beyond the minimum requirements, and strive to reach her full potential.
+Maria José has made good progress in IT this year; she has a lot of potential but doesn't always apply herself. I would really like to see what she is capable of when she really works hard. She has undertaken website and animation projects, along with developing an understanding of databases and a number of computer theory topics. Maria José seems to down play her abilities; I believe she could do anything she puts her mind to. As a target for next year Maria José should aim to go beyond the minimum requirements, and strive to reach her full potential.
 
 Term Grade: A-
 
@@ -143,7 +143,7 @@ Antonia has made good progress in IT this year; she is committed to her studies 
 Term Grade: A
 
 Exam Grade: A
-Nicol�s started Greengates midway through the year, since his arrival he has shown himself to be extremely competent in ICT. His greatest success was working with animation where he produced a very creative animation featuring Star wars characters. Nicol�s clearly has a creative talent that I would like to see him pursue further. I recommend that Nicol�s continues to practice with graphics and animation software to further improve these skills. 
+Nicolás started Greengates midway through the year, since his arrival he has shown himself to be extremely competent in ICT. His greatest success was working with animation where he produced a very creative animation featuring Star wars characters. Nicolás clearly has a creative talent that I would like to see him pursue further. I recommend that Nicolás continues to practice with graphics and animation software to further improve these skills.
 
 Term Grade: A+
 
@@ -247,13 +247,13 @@ Term Grade: A-
 Exam Grade: A
 
 Form 4
-Alberto has made good progress in ICT this year; it is clear that he has a passion for the subject and has a keen interest in emerging technologies. I don�t feel that Alberto's exam grades are a true reflection of his abilities and understanding of the topics covered and would urge him to take his time reading the questions in an examination setting. 
+Alberto has made good progress in ICT this year; it is clear that he has a passion for the subject and has a keen interest in emerging technologies. I don't feel that Alberto's exam grades are a true reflection of his abilities and understanding of the topics covered and would urge him to take his time reading the questions in an examination setting.
 
 Term Grade: A-
 
 Practical Exam Grade: B
 Theory Exam Grade: B+
-Rub�n has grown in confidence in ICT over the course of the year and should be very pleased with his achievements. He regularly asks questions to deepen his understanding of the topics covered and has clearly spent time reviewing the material to achieve some impressive exam results. Rub�n has interests in computing outside of the classroom also and I am very pleased to hear about the coding program that he will be participating in over the summer. To improve further I recommend further practice with the software and exam style questions. 
+Rubén has grown in confidence in ICT over the course of the year and should be very pleased with his achievements. He regularly asks questions to deepen his understanding of the topics covered and has clearly spent time reviewing the material to achieve some impressive exam results. Rubén has interests in computing outside of the classroom also and I am very pleased to hear about the coding program that he will be participating in over the summer. To improve further I recommend further practice with the software and exam style questions.
 
 Term Grade: B+
 
@@ -295,7 +295,7 @@ Term Grade: B+
 
 Practical Exam Grade: A-
 Theory Exam Grade: B-
-Mar�a Candela is an excellent student in ICT; she listens carefully and completes all the work set on time and to the highest standard. In the recent exams she was absent but it is testament to her mature attitude to her studies that she has completed both of these as soon as she returned to school. Mar�a Candela should be pleased with her results in both the theory and the practical papers. To improve however I would like her to review what we have studied in the spreadsheets unit particularly the use of the SUM function. 
+María Candela is an excellent student in ICT; she listens carefully and completes all the work set on time and to the highest standard. In the recent exams she was absent but it is testament to her mature attitude to her studies that she has completed both of these as soon as she returned to school. María Candela should be pleased with her results in both the theory and the practical papers. To improve however I would like her to review what we have studied in the spreadsheets unit particularly the use of the SUM function.
 
 Term Grade: A
 
@@ -313,7 +313,7 @@ Term Grade: A-
 
 Practical Exam Grade: A
 Theory Exam Grade: B
-Noam is a natural student in ICT; he feels very comfortable on the computer and is up to date with current and emerging technologies. Noam can be relied upon to have something valuable to say in class discussion and performs well when working on practical exercises. Noam didn't perform quite as well in the test as I would've expected, I don�t believe this is because he didn't know the answers rather he misread some of the questions. To improve I would suggest that Noam carefully check his answers at the end of the exam, take a little time to read the questions and make sure he has fully understood what is being asked of him. 
+Noam is a natural student in ICT; he feels very comfortable on the computer and is up to date with current and emerging technologies. Noam can be relied upon to have something valuable to say in class discussion and performs well when working on practical exercises. Noam didn't perform quite as well in the test as I would've expected, I don't believe this is because he didn't know the answers rather he misread some of the questions. To improve I would suggest that Noam carefully check his answers at the end of the exam, take a little time to read the questions and make sure he has fully understood what is being asked of him.
 
 Term Grade: A+
 
