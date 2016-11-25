@@ -1,32 +1,17 @@
-import nltk
-from nltk.corpus import treebank
+import os
+import sys
+import nltk_comments.nltk_utilities as nltkUtil
 
-def sentenceAnalysis(sentence):
-    tokens = nltk.word_tokenize(sentence)
+# sentence = """At eight o'clock on Thursday morning
+# ... Arthur didn't feel very good."""
+# nltkUtil.sentenceAnalysis(sentence)
 
-    print(tokens)
-    tagged = nltk.pos_tag(tokens)
-    tagged[0:6]
-    print(tagged)
-    entities = nltk.chunk.ne_chunk(tagged)
-    print(entities)
+currentDir = os.path.dirname(sys.argv[0])
+comments_file= open(currentDir + '/Comments/SOURCE/Form3.txt')
+sentence_tokens = nltkUtil.tokenizeFile(comments_file)
 
-
-sentence = """At eight o'clock on Thursday morning
-... Arthur didn't feel very good."""
-sentenceAnalysis(sentence)
-
-
-comments_file= open('C:\\Users\\dvazquez\\PycharmProjects\\nltk_comments\\nltk_comments\\Comments\\SOURCE\\Form3.txt')
-raw = comments_file.read()
-print (type(raw))
-print (len(raw))
-print (raw[:75])
-
-
-sentence_tokens = nltk.sent_tokenize(raw)
-print (type(sentence_tokens))
-print (len(sentence_tokens))
+# print (type(sentence_tokens))
+# print (len(sentence_tokens))
 
 for index, sentence in enumerate(sentence_tokens):
     if (sentence.startswith('Exam Grade:')
@@ -37,7 +22,4 @@ for index, sentence in enumerate(sentence_tokens):
         sentence_tokens.pop(index)
     else :
         print (sentence)
-        sentenceAnalysis(sentence)
-
-
-
+        nltkUtil.sentenceAnalysis(sentence)
