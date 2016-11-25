@@ -5,7 +5,7 @@ con = None
 
 try:
     # con = lite.connect('C:\\Users\\dvazquez\\sandbox\\sqlite3\\comments.db')
-    con = lite.connect('GGCommentsDB')
+    con = lite.connect('GGCommentsDB.db')
     cur = con.cursor()
     cur.execute('SELECT SQLITE_VERSION()')
 
