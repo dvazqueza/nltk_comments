@@ -82,7 +82,8 @@ def StudentReport(student, tokens, comments):
 
     return (intStudentId, comment)
 
-def CreateReports(form):
+
+def CreateReports(form, reportId):
     con = None
 
     try:
@@ -104,7 +105,7 @@ def CreateReports(form):
             "WHERE Students.id = final_grade.student_id AND form=?", ('F2',)).fetchall()
         print(students)
 
-        count = 0
+        count = reportId
         for student in students:
             storeComment = StudentReport(student, tokens, comments)
             print(storeComment)
@@ -112,6 +113,7 @@ def CreateReports(form):
                         (count, storeComment[0], 'G1', storeComment[1]))
             count += 1
         con.commit()
+        return count
     except lite.Error as e:
 
         print("Error %s:" % e.args[0])
@@ -123,4 +125,7 @@ def CreateReports(form):
             con.close()
 
 
-CreateReports("F2")
+groups = ["F1", "F2", "F3", "L6", "U6"]
+reportId = 0
+for group in groups:
+    reportId = CreateReports(groups, reportId)
