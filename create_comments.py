@@ -1,56 +1,117 @@
 import sqlite3 as lite
 import sys
+import random
 
 
-def CreateReports(form):
+def commentsType(comments, type):
+    commentsTypeList = []
+    for comment in comments:
+        if comment[2] == type:
+            commentsTypeList.append(comment)
 
-    # Keyboard Shortcut: Ctrl+q
+    return commentsTypeList
 
+
+def selectComment(commentsTypeList, grade, pct):
     strComment = ""
-    strTarget = ""
-    strFirstName = ""
-    strGender = ""
 
-    strHeSheCaps = ""
-    strHeSheNoCaps = ""
-    strHisHerCaps = ""
-    strHisHerNoCaps = ""
-    strHimHerNoCaps = ""
+    commentGrade = 0
 
-    nFirstNameCol = ""
-    nGenderCol = ""
-    nMaxRecords = ""
+    gradeValue = (float(pct.strip('%')))
+    tries = 10
+    while not commentGrade > gradeValue and tries != 0:
+        comment = random.choice(commentsTypeList)
+        commentGrade = comment[3]
+        if commentGrade > gradeValue:
+            strComment = comment[1]
+        else:
+            tries -= 1
+
+    return strComment
 
 
+def replaceTokens(comm, tokens, firstName, gender, form):
+    comm = comm.replace('<firstname>', firstName)
+    for token in tokens:
+        replaceValue = ''
+        if gender == 'M':
+            replaceValue = token[2]
+        elif gender == 'F':
+            replaceValue = token[3]
 
-    # get tokens..
+        if token[1] == '<subject>':
+            if form == 'U6' or form == 'L6':
+                replaceValue = 'Computer Science'
+        comm = comm.replace(token[1], replaceValue)
+    return comm
 
+
+def StudentReport(student, tokens, comments):
     strTokens = []
     strTokenFemale = []
     strTokenMale = []
 
+    nRow = 0
+    for row in tokens:
+        strTokens.append(row[1])
+        strTokenMale.append(row[2])
+        strTokenFemale.append(row[3])
+        nRow += 1
+
+    studentGrade = student[4]
+    studentPct = student[5]
+    intStudentId = student[0]
+    strFirstName = student[1]
+    strGender = student[3]
+    strForm = student[6]
+
+    finalComment = []
+    finalComment.append(selectComment(commentsType(comments, 'Comment 1'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Comment 2'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Comment 3'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Comment 4'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Comment 5'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Target 1'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Target 2'), student[4], student[5]))
+    finalComment.append(selectComment(commentsType(comments, 'Target 3'), student[4], student[5]))
+
+    for index, comm in enumerate(finalComment):
+        finalComment[index] = replaceTokens(comm, tokens, strFirstName, strGender, strForm)
+
+    comment = ' '.join(finalComment)
+
+    return (intStudentId, comment)
+
+def CreateReports(form):
+    con = None
+
     try:
-        con = None
+
         con = lite.connect('GGCommentsDB.db')
         cur = con.cursor()
-        cur.execute('SELECT SQLITE_VERSION()')
 
-        # Do this instead
+        version = cur.execute('SELECT SQLITE_VERSION()').fetchall()
+        print(version)
 
-        nRow = 0
+        comments = cur.execute('SELECT id,comentario,type,weight FROM Comments').fetchall()
+        print(comments)
 
-        for row in cur.execute('SELECT * FROM Tokens'):
+        tokens = cur.execute('SELECT id, token, male, female FROM Tokens').fetchall()
+        print(tokens)
 
-            strTokens.append(row[1])
-            strTokenMale.append(row[2])
-            strTokenFemale.append(row[3])
-            nRow += 1
+        students = cur.execute(
+            "SELECT Students.id AS id, firstname, surname, gender, grade, pct, form  FROM Students,final_grade "
+            "WHERE Students.id = final_grade.student_id AND form=?", ('F2',)).fetchall()
+        print(students)
 
-        for student in cur.execute('SELECT * FROM Students WHERE form= ?', form):
-            intStudentId = student[0]
-            strFirstName = student [2]
-            strGender = student[4]
-
+        count = 0
+        for student in students:
+            storeComment = StudentReport(student, tokens, comments)
+            print(storeComment)
+            cur.execute('INSERT INTO Results (id, student_id, term, final_comment) VALUES (?,?,?,?)',
+                        (count, storeComment[0], 'G1', storeComment[1]))
+            count += 1
+        con.commit()
     except lite.Error as e:
 
         print("Error %s:" % e.args[0])
@@ -61,100 +122,5 @@ def CreateReports(form):
         if con:
             con.close()
 
-    print(strTokens)
-    print(strTokenMale)
-    print(strTokenFemale)
 
-    #  get each comment and replace tokens..
-
-'''
-'REPLACE COMMENT..
-
-For
-col = 5
-To
-11
-
-strComment = Worksheets("Create").Cells(nRow, col)
-
-If(strComment <> "")
-And(col <> 10)
-Then
-For
-i = 0
-To
-15
-'hack! try 15 times to replace key word tags..
-For
-j = 0
-To
-9
-strComment = Replace(strComment, "<firstname>", strFirstName)
-If(strGender="M")
-Then
-strComment = Replace(strComment, strTokens(j + 1), strTokenMale(j + 1))
-End
-If
-If(strGender="F")
-Then
-strComment = Replace(strComment, strTokens(j + 1), strTokenFemale(j + 1))
-End
-If
-Next
-j
-Next
-i
-
-Worksheets("Create").Cells(nRow, col) = strComment
-End
-If
-
-Next
-col
-
-'REPLACE TARGET
-For
-col = 11
-To
-16
-strTarget = Worksheets("Create").Cells(nRow, col)
-
-If(strTarget <> "")
-And(col <> 14)
-Then
-For
-i = 0
-To
-15
-'hack! try 15 times to replace key word tags..
-For
-j = 0
-To
-9
-strTarget = Replace(strTarget, "<firstname>", strFirstName)
-If(strGender="M")
-Then
-strTarget = Replace(strTarget, strTokens(j + 1), strTokenMale(j + 1))
-End
-If
-If(strGender="F")
-Then
-strTarget = Replace(strTarget, strTokens(j + 1), strTokenFemale(j + 1))
-End
-If
-Next
-j
-Next
-i
-End
-If
-
-Worksheets("Create").Cells(nRow, col) = strTarget
-Next
-col
-Next
-nRow
-
-'''
-
-CreateReports()
+CreateReports("F2")
